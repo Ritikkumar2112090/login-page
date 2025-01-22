@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Chat - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            color: #ced4da; /* Added missing semicolon */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Login form styles */
+        .login-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+        }
+
+        .login-container button {
+            background: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            border-color: #333;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background: #303b46;
+
+        }
+
+        .login-container a {
+            display: block;
+            margin-top: 10px;
+            color: #2b3744;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .google-login {
+            background: #db4437;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-login:hover {
+            background: #c1351d;
+        }
+
+        .google-login i {
+            margin-right: 8px;
+        }
+
+        .back-button {
+            background: #6c757d;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .back-button:hover {
+            background: #5a6268;
+        }
+        .eye-icon {
+            cursor: pointer;
+            position: absolute;
+            margin-left: 130px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>   
+ <div class="login-container">
+    
+          <div style="position: relative;">
+        <input type="text" id="text" placeholder="user name" required>
+        <i class="fas fa-eye eye-icon" id="togglePassword" onclick="togglePassword()"></i>
+          </div>
+         <input type="password" id="password" placeholder="Password" required>
+   
+
+
+        <button onclick="login()">Login</button>
+        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="google-login" onclick="loginWithGoogle()">
+            <i class="fab fa-google"></i> Login with Google
+        </button>
+        <button class="create" onclick="createNewAccount()">
+            Create new account
+        </button>
+
+</div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('togglePassword');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+
+
+            function login() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+            
+                // Email validation regex
+                
+            
+                if (!usernamepatern.test(username)) {
+                    alert("Please enter a valid user name.");
+                    return;
+                }
+            
+                if (password.length < 8) {
+                    alert("Password must be at least 8 characters long.");
+                    return;
+                }
+            
+                // Simulate a successful login for demonstration
+                if (email === "user@example.com" && password === "password123") {
+                    alert("Login successful!");
+                    window.location.href = "a.htm"; // Redirect to a.htm
+                } else {
+                    alert("Incorrect email or password.");
+                }
+            }
+            
+        
+
+        function goBack() {
+            window.location.href = "https://www.google.com"; // Redirect to Google homepage
+        }
+
+        function loginWithGoogle() {
+            // Redirect to Google login page
+            window.location.href = "https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=email"; // Replace with actual client ID and redirect URI
+        }
+
+        function createNewAccount() {
+            alert("Create new account functionality not implemented yet.");
+        }
+    </script>
+</body>
+</html> 
